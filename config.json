@@ -1,0 +1,15 @@
+{
+	"host":"0.0.0.0",
+	"port":8888,
+	"index":"index.html",
+	"home":{
+		"GET":"docs",
+		"POST":"api"
+	},
+	"options":{
+		"BUFSIZE":1048576,
+		"MAXREQ":32,
+		"MAXREQSIZE":8388608,
+		"MASTER_KEY":"Cyberpiers&Chihlee"
+	}
+}

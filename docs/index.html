@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>石碇高中前端網頁試做</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            flex-shrink: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-bottom: 2px solid #ccc;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-title {
+            font-size: 2em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .header-user-info {
+            font-size: 1.2em;
+            color: #666;
+            text-align: right;
+        }
+
+        .content {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background-color: #fff;
+            display: flex; /* 讓圖表容器置中 */
+            justify-content: center;
+            align-items: center;
+        }
+
+        #myDiv {
+            width: 80%; /* 設定圖表寬度 */
+            height: 80%; /* 設定圖表高度 */
+        }
+    </style>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+
+    <div class="header">
+        <div class="header-top">
+            <div class="header-title">石碇高中前端網頁試做</div>
+            <div class="header-user-info">
+                <span>帳號：std_user01</span><br>
+                <span>姓名：張小明</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div id="myDiv"></div>
+    </div>
+
+    <script>
+        // 定義圖表資料
+        var data = [{
+            x: ['台灣', '日本', '美國', '德國'], // X軸類別
+            y: [50, 150, 100, 75], // Y軸數值
+            type: 'bar', // 設定圖表類型為長條圖
+            marker: {
+                color: 'rgba(50, 171, 96, 0.7)', // 長條圖顏色
+                line: {
+                    color: 'rgba(50, 171, 96, 1.0)',
+                    width: 2
+                }
+            }
+        }];
+
+        // 定義圖表佈局（標題、軸線標籤等）
+        var layout = {
+            title: '各國前端技術普及度',
+            font: {
+                family: 'Arial, sans-serif'
+            },
+            xaxis: {
+                title: '國家',
+                showgrid: false,
+                zeroline: false
+            },
+            yaxis: {
+                title: '普及度 (%)',
+                zeroline: false
+            }
+        };
+
+        // 使用 Plotly.js 繪製圖表
+        Plotly.newPlot('myDiv', data, layout);
+    </script>
+
+</body>
+</html>
